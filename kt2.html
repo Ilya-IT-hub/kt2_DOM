@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Котики</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+      max-width: 300px;
+    }
+
+    .card img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="catsContainer"></div>
+
+  <script>
+
+    const cats = [
+      // ... 
+    ];
+
+    function displayCats() {
+      const catsContainer = document.getElementById('catsContainer');
+      catsContainer.innerHTML = '';
+
+      cats.forEach(cat => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const img = document.createElement('img');
+        img.src = cat.img_link;
+        img.alt = cat.name;
+
+        const name = document.createElement('h3');
+        name.textContent = cat.name;
+
+        const age = document.createElement('p');
+        age.textContent = `Возраст: ${cat.age} год(а)`;
+
+        const rate = document.createElement('p');
+        rate.textContent = `Оценка: ${cat.rate}`;
+
+        const description = document.createElement('p');
+        description.textContent = cat.description;
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(age);
+        card.appendChild(rate);
+        card.appendChild(description);
+
+        catsContainer.appendChild(card);
+      });
+    }
+
+    window.onload = displayCats;
+  </script>
+</body>
+</html>
